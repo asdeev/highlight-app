@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+span {
+  padding-right: 10px;
+  padding-left: 10px;
+  display: inline-block;
+}
+
+textarea {
+  height: 100px;
+  width: 75%;
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+button {
+  margin-left: 25px;
+}
+
+.container {
+  padding: 15px;
+}
