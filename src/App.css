@@ -1,6 +1,6 @@
 .red {
   color: black;
-  background-color: rgb(255, 0, 0, 0.7);
+  background-color: rgb(255, 0, 0, 0.6);
 }
 
 .red-hover {
@@ -10,7 +10,7 @@
 
 .green {
   color: black;
-  background-color: rgb(0, 128, 0, 0.7);
+  background-color: rgb(0, 128, 0, 0.6);
 }
 
 .green-hover {
@@ -20,7 +20,7 @@
 
 .blue {
   color: black;
-  background-color: rgb(0, 0, 255, 0.7);
+  background-color: rgb(0, 0, 255, 0.6);
 }
 
 .blue-hover {
@@ -30,7 +30,7 @@
 
 .purple {
   color: black;
-  background-color: rgb(128, 0, 128, 0.7);
+  background-color: rgb(128, 0, 128, 0.6);
 }
 
 .purple-hover {
@@ -40,7 +40,7 @@
 
 .grey {
   color: black;
-  background-color: rgb(128, 128, 128, 0.7);
+  background-color: rgb(128, 128, 128, 0.6);
 }
 
 .grey-hover {
