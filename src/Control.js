@@ -45,11 +45,17 @@ export class Control extends React.Component {
         for (let i = 0; i < words.length - phrase.length + 1; i++) {
             let tempWords = [];
             let node = words.slice(i, i + phrase.length);
-            let diff = node.filter(x => {
-                tempWords.push(x);
-                return phrase.indexOf(x.toLowerCase().replace(/[,.!?]/g, '')) < 0;
-            });
-            if (diff.length < 1) {
+            let diff = false;
+            for (let j = 0; j < node.length; j++) {
+                if (node[j].toLowerCase().replace(/[,.!?]/g, '') === phrase[j]) {
+                    tempWords.push(node[j]);
+                } else {
+                    diff = true;
+                    break;
+                }
+            }
+            if (!diff) {
+                console.log(tempWords);
                 let wordIndex = i;
                 let textNode;
                 for (let j = 0; j < phrase.length; j++) {
@@ -77,7 +83,7 @@ export class Control extends React.Component {
     
     hasMore(node, neighborNodes, color, direction) {
         let dNode = node[direction];
-        if (dNode && this.state.textNodes[dNode].priority.includes(color)) {
+        if (dNode !== null && this.state.textNodes[dNode].priority.includes(color)) {
             document.getElementById(dNode).setAttribute('class', `${color}-hover`);
             neighborNodes.push(dNode);
             this.hasMore(this.state.textNodes[dNode], neighborNodes, color, direction);
@@ -114,6 +120,7 @@ export class Control extends React.Component {
     renderNodes() {
         let words = this.state.words;
         let outputWords = [];
+        console.log(this.state.textNodes);
         for (let i in words) {
             let textNode;
             if (this.state.textNodes.hasOwnProperty(i)) {
