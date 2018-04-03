@@ -12,10 +12,10 @@ export class Control extends React.Component {
             nextNeighbors: [],
             outputWords: []
         };
-        this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleClick() {
+    handleChange() {
         let words = this.props.value;
         words = words.split(' ');
         this.setState({ words: words }, () => {
@@ -136,10 +136,14 @@ export class Control extends React.Component {
         this.setState({ outputWords: outputWords });
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.handleChange();
+    }
+
     render() {
         return (
             <div>
-                <button onClick={ this.handleClick }>Process Input</button>
+                {/* <button onClick={ this.handleClick }>Process Input</button> */}
                 <div className="container">
                     { this.state.outputWords }
                 </div>
