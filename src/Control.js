@@ -55,7 +55,6 @@ export class Control extends React.Component {
                 }
             }
             if (!diff) {
-                console.log(tempWords);
                 let wordIndex = i;
                 let textNode;
                 for (let j = 0; j < phrase.length; j++) {
@@ -85,6 +84,10 @@ export class Control extends React.Component {
         let dNode = node[direction];
         if (dNode !== null && this.state.textNodes[dNode].priority.includes(color)) {
             document.getElementById(dNode).setAttribute('class', `${color}-hover`);
+            neighborNodes.push(dNode);
+            this.hasMore(this.state.textNodes[dNode], neighborNodes, color, direction);
+        } else if (dNode !== null) {
+            document.getElementById(dNode).setAttribute('class', 'white');
             neighborNodes.push(dNode);
             this.hasMore(this.state.textNodes[dNode], neighborNodes, color, direction);
         }
@@ -120,7 +123,6 @@ export class Control extends React.Component {
     renderNodes() {
         let words = this.state.words;
         let outputWords = [];
-        console.log(this.state.textNodes);
         for (let i in words) {
             let textNode;
             if (this.state.textNodes.hasOwnProperty(i)) {

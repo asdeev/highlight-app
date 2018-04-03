@@ -47,3 +47,8 @@
   color: white;
   background-color: rgb(128, 128, 128, 1);
 }
+
+.white {
+  color: black;
+  background-color: white;
+}
